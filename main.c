@@ -33,15 +33,15 @@ int main()
 	const char file_to_write[16] = "verilog_rom.txt";
 	FILE* file_out = fopen(file_to_write, "w");
 
-	fprintf(file_out, "case 0 : out = 1'b0\n"); // 0 is not prime
-	fprintf(file_out, "case 1 : out = 1'b0\n"); // 1 is not prime
+	fprintf(file_out, "\t\t0 : out = 1'b0;\n"); // 0 is not prime
+	fprintf(file_out, "\t\t1 : out = 1'b0;\n"); // 1 is not prime
 		
 	for (int i = 2; i < 1024; i++)
 	{
 		if (isPrime(i, prime_holder)) 
-			fprintf(file_out, "case %d : out = 1'b1\n", i);
+			fprintf(file_out, "\t\t%d : out = 1'b1;\n", i);
 		else 
-			fprintf(file_out, "case %d : out = 1'b0\n", i);
+			fprintf(file_out, "\t\t%d : out = 1'b0;\n", i);
 	
 	}
 
